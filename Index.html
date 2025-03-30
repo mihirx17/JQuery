@@ -9,9 +9,14 @@
 <body>
     <div id="getdata"></div>
     <div id="Loaddata"></div>
+    <div id="Hide" style="border: solid 2px red; width: 200px;">Hi I Am Mihir Gupta</div>
     <h1>Hello, It's jQuery</h1>
-    <button id="btn1">Click Me</button>
-    <button id="btn2">Click Me1</button>
+    <button id="btn1">Click Me For Load Data</button>
+    <button id="btn3">Click Me For Hide</button>
+    <button id="btn2">Click Me get Data</button>
+    <button id="btn4">Click Me For Show</button>
+    <button id="btn5">Click Me For Text</button>
+    <button id="btn6">Click Me For HTML</button>    
     <script>
         $(document).ready(function() {
             // Load data into #Loaddata when btn1 is clicked
@@ -30,6 +35,28 @@
                         console.error("Failed to fetch data");
                     }
                 });
+            });
+
+            // Hide the #Hide div when btn3 is clicked
+            $("#btn3").click(function() {
+                $("#Hide").hide();
+            });
+
+            // Show the #Hide div with animation when btn4 is clicked
+            $("#btn4").click(function() {
+                $("#Hide").show(1, function() {
+                    alert("I am Mihir Gupta");
+                });
+            });
+
+            // Display the text content of #Hide in an alert when btn5 is clicked
+            $("#btn5").click(function() {
+                alert("Text: " + $("#Hide").text());
+            });
+
+            // Display the HTML content of #Hide in an alert when btn6 is clicked
+            $("#btn6").click(function() {
+                alert("HTML: " + $("#Hide").html());
             });
         });
     </script>
