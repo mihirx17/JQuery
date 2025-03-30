@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="getdata"></div>
+    <div id="Loaddata"></div>
+    <h1>Hello, It's jQuery</h1>
+    <button id="btn1">Click Me</button>
+    <button id="btn2">Click Me1</button>
+    <script>
+        $(document).ready(function() {
+            // Load data into #Loaddata when btn1 is clicked
+            $("#btn1").click(function() {
+                $("#Loaddata").load("https://jsonplaceholder.typicode.com/posts");
+            });
+
+            // Fetch data and display the first post's title in #getdata when btn2 is clicked
+            $("#btn2").click(function() {
+                $.get("https://jsonplaceholder.typicode.com/posts", function(data, status) {
+                    console.log(data);
+                    if (status === "success" && data.length > 0) {
+                        $("#getdata").html(data[0].title);
+                        console.log(status);
+                    } else {
+                        console.error("Failed to fetch data");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
